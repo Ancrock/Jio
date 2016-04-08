@@ -22,5 +22,7 @@ namespace Jio.Models
         public System.Data.Entity.DbSet<Jio.Models.Restaurant> Restaurants { get; set; }
 
         public System.Data.Entity.DbSet<Jio.Models.Menu_Item> Menu_Item { get; set; }
+
+        public System.Data.Entity.DbSet<Jio.Models.Order> Orders { get; set; }
     }
 }
