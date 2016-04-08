@@ -13,6 +13,8 @@ namespace Jio
         protected void Application_Start()
         {
             System.Data.Entity.Database.SetInitializer(new System.Data.Entity.MigrateDatabaseToLatestVersion<Models.JioEntities, Migrations.Configuration>());
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.MigrateDatabaseToLatestVersion<Models.ApplicationDbContext, Migrations.ApplicationDbContext.Configuration>());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

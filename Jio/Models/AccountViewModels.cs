@@ -64,6 +64,15 @@ namespace Jio.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string Fname { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string Lname { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,6 +88,16 @@ namespace Jio.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Address")]
+        public string Address { get; set; }
+
+        [Required]
+        [CreditCard]
+        [Display(Name = "Credit Card")]
+        public string Card { get; set; }
+
     }
 
     public class ResetPasswordViewModel
@@ -100,6 +119,8 @@ namespace Jio.Models
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
+
+      
     }
 
     public class ForgotPasswordViewModel

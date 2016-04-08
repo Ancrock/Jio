@@ -177,6 +177,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604082017358_Fname.cs" />
+    <Compile Include="Migrations\201604082017358_Fname.Designer.cs">
+      <DependentUpon>201604082017358_Fname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604082017566_Lname.cs" />
+    <Compile Include="Migrations\201604082017566_Lname.Designer.cs">
+      <DependentUpon>201604082017566_Lname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604082018241_Card.cs" />
+    <Compile Include="Migrations\201604082018241_Card.Designer.cs">
+      <DependentUpon>201604082018241_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604082018538_Address.cs" />
+    <Compile Include="Migrations\201604082018538_Address.Designer.cs">
+      <DependentUpon>201604082018538_Address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201604072329575_InitialCreate.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201604072329575_InitialCreate.Designer.cs">
+      <DependentUpon>201604072329575_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -275,6 +296,23 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604082017358_Fname.resx">
+      <DependentUpon>201604082017358_Fname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604082017566_Lname.resx">
+      <DependentUpon>201604082017566_Lname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604082018241_Card.resx">
+      <DependentUpon>201604082018241_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604082018538_Address.resx">
+      <DependentUpon>201604082018538_Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201604072329575_InitialCreate.resx">
+      <DependentUpon>201604072329575_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
