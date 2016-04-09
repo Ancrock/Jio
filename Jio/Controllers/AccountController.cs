@@ -151,7 +151,7 @@ namespace Jio.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Fname = model.Fname, Lname = model.Lname, Card = model.Card, Address = model.Address };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Fname = model.Fname, Lname = model.Lname, Address = model.Address, City = model.City, State = model.State, PostalCode = model.PostalCode, Country = model.Country, Phone = model.Phone   };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

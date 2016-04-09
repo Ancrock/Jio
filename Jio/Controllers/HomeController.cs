@@ -47,7 +47,11 @@ namespace Jio.Controllers
             model.Fname = user.Fname;
             model.Lname = user.Lname;
             model.Address = user.Address;
-            model.Card = user.Card;
+            model.City = user.City;
+            model.State = user.State;
+            model.PostalCode = user.PostalCode;
+            model.Country = user.Country;
+            model.Phone = user.Phone;
 
             return View(model);
         }
@@ -66,9 +70,11 @@ namespace Jio.Controllers
                 user.Fname = userprofile.Fname;
                 user.Lname = userprofile.Lname;
                 user.Address = userprofile.Address;
-                user.Card = userprofile.Card;
-                //user.LastName = userprofile.LastName;
-                //user.Email = userprofile.Email;
+                user.City = userprofile.City;
+                user.State = userprofile.State;
+                user.PostalCode = userprofile.PostalCode;
+                user.Country = userprofile.Country;
+                user.Phone = userprofile.Phone;              
 
                 db.Entry(user).State = EntityState.Modified;
 

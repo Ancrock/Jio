@@ -28,7 +28,7 @@ namespace Jio.Controllers
             model.FirstName = user.Fname;
             model.LastName = user.Lname;
             model.Address = user.Address;
-            model.Phone = user.Card;
+            //model.Phone = user.Card;
             model.Total = Decimal;
           
 
