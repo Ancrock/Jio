@@ -59,7 +59,7 @@ ErrorMessage = "Email is is not valid.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
         [ScaffoldColumn(false)]

@@ -65,6 +65,8 @@ namespace Jio.Models
     public class RegisterViewModel
     {
 
+      
+
         [Required]
         [Display(Name = "First Name")]
         public string Fname { get; set; }
@@ -94,7 +96,8 @@ namespace Jio.Models
         public string Address { get; set; }
 
         [Required]
-        [CreditCard]
+       // [CreditCard]
+       [DataType(DataType.CreditCard)]
         [Display(Name = "Credit Card")]
         public string Card { get; set; }
 

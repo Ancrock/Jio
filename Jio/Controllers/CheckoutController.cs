@@ -1,4 +1,5 @@
 ﻿using Jio.Models;
+using Jio.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,28 @@ namespace Jio.Controllers
     [Authorize]
     public class CheckoutController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         JioEntities storeDB = new JioEntities();
         const string PromoCode = "FREE";
         //
         // GET: /Checkout/AddressAndPayment
-        public ActionResult AddressAndPayment()
+        public ActionResult AddressAndPayment(decimal Decimal)
         {
-            return View();
+
+
+            string username = User.Identity.Name;
+           
+            ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName.Equals(username));
+            Order model = new Order();
+            ShoppingCart shop = new ShoppingCart();
+            model.FirstName = user.Fname;
+            model.LastName = user.Lname;
+            model.Address = user.Address;
+            model.Phone = user.Card;
+            model.Total = Decimal;
+          
+
+            return View(model);
         }
         //
         // POST: /Checkout/AddressAndPayment

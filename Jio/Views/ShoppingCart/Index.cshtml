@@ -46,7 +46,7 @@ $('#cart-status').text('Cart (' + data.CartCount + ')');
     <em>Review</em> your cart:
 </h3>
 <p class="button">
-    @Html.ActionLink("Checkout >>", "AddressAndPayment", "Checkout")
+    @Html.ActionLink("Checkout >>", "AddressAndPayment", "Checkout", new { @decimal = Model.CartTotal }, null)
 </p>
 <div id="update-message">
 </div>
