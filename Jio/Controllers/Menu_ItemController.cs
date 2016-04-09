@@ -48,7 +48,7 @@ namespace Jio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,price")] Menu_Item menu_Item)
+        public ActionResult Create([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,AlbumArtUrl,price")] Menu_Item menu_Item)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace Jio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,price")] Menu_Item menu_Item)
+        public ActionResult Edit([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,AlbumArtUrl,price")] Menu_Item menu_Item)
         {
             if (ModelState.IsValid)
             {
@@ -127,6 +127,20 @@ namespace Jio.Controllers
             // List<Menu_Item> menuitem = new List<Menu_Item>();
             // menuitem.Add(menu_Item);
 
+            return View(menu_Item);
+        }
+
+        public ActionResult MenuItemDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Menu_Item menu_Item = db.menu_item.Find(id);
+            if (menu_Item == null)
+            {
+                return HttpNotFound();
+            }
             return View(menu_Item);
         }
 

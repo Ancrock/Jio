@@ -33,15 +33,6 @@
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AlbumArtUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AlbumArtUrl)
-        </dd>
-
         <p>
             <img src="@Model.AlbumArtUrl" alt="@Model.Item_Name" />
         </p>
@@ -57,6 +48,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Menu_ItemID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = Model.Menu_ItemID }, null) |
 </p>

@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<Jio.Models.Menu_Item>
+
 @{
-    ViewBag.Title = "Restaurant_Menu";
+    
+    {
+        ViewBag.Title = "Restaurant Menu";
+    }
 }
 
 <h2>Restaurant_Menu</h2>
@@ -21,7 +25,7 @@
         </th>
         <th></th>
     </tr>
-
+   
     @foreach (var menuitem in Model)
     {
         <tr>
@@ -34,11 +38,20 @@
             <td>
                 @Html.DisplayFor(modelItem => menuitem.description)
             </td>
+
             <td>
                 @Html.DisplayFor(modelItem => menuitem.price)
             </td>
+
+            @*<td>
+                <p>
+                    <img src="@Url.Content(menuitem.AlbumArtUrl)" alt="@menuitem.AlbumArtUrl" />
+                </p>
+            </td>*@
+
             <td>
-                @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = menuitem.Menu_ItemID }, null) |
+                @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = menuitem.Menu_ItemID, }, null) |
+              @Html.ActionLink("Details", "MenuItemDetails", "Menu_Item", new { id = menuitem.Menu_ItemID, @class = "btn-primary" }, null)
             </td>
         </tr>
     }
