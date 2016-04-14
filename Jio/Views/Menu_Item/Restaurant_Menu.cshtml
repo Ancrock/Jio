@@ -1,59 +1,48 @@
 ﻿@model IEnumerable<Jio.Models.Menu_Item>
-
+@*<script src="~/Scripts/menu.js"></script>*@
+<link rel="stylesheet" href="~/Content/menu.css" type="text/css">
 @{
-    
+
     {
         ViewBag.Title = "Restaurant Menu";
     }
 }
 
-<h2>Restaurant_Menu</h2>
+<h2>Restaurant Menu</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.restaurant.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Item_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
-        <th></th>
-    </tr>
-   
-    @foreach (var menuitem in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => menuitem.restaurant.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => menuitem.Item_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => menuitem.description)
-            </td>
+<div id="menutable" >
+    <table id="mtb" border="0" width="100%" cellpadding="1">
+        <tbody>
+           
 
-            <td>
-                @Html.DisplayFor(modelItem => menuitem.price)
-            </td>
+                @foreach (var menuitem in Model)
+                {
+                    <tr class="restaurantclick">
+                        <td class="" onclick="action = 'submit';">
+                            <k class="k">
+                                <article>
+                                    @Html.DisplayFor(modelItem => menuitem.Item_Name)
+                            </k>
+                            <p>
+                                @Html.DisplayFor(modelItem => menuitem.price)
+                            </p>
+                            <article>
+                                @Html.DisplayFor(modelItem => menuitem.description)
+                            </article>
+                            @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = menuitem.Menu_ItemID, }, null) |
+                            @Html.ActionLink("Details", "MenuItemDetails", "Menu_Item", new { id = menuitem.Menu_ItemID, @class = "btn-primary" }, null)
 
-            @*<td>
-                <p>
-                    <img src="@Url.Content(menuitem.AlbumArtUrl)" alt="@menuitem.AlbumArtUrl" />
-                </p>
-            </td>*@
 
-            <td>
-                @Html.ActionLink("Add To Cart", "AddToCart", "ShoppingCart", new { id = menuitem.Menu_ItemID, }, null) |
-              @Html.ActionLink("Details", "MenuItemDetails", "Menu_Item", new { id = menuitem.Menu_ItemID, @class = "btn-primary" }, null)
-            </td>
-        </tr>
-    }
+                        </td>
+                    </tr>
 
-</table>
+
+                }
+                  
+
+                </tbody>
+            </table>
+        </div>
+
+
+

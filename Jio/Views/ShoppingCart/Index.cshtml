@@ -50,7 +50,7 @@ $('#cart-status').text('Cart (' + data.CartCount + ')');
 </p>
 <div id="update-message">
 </div>
-<table>
+<table class="table">
     <tr>
         <th>
             Item
@@ -66,7 +66,7 @@ $('#cart-status').text('Cart (' + data.CartCount + ')');
     {
     <tr id="row-@item.RecordId">
         <td>
-            @Html.ActionLink(item.menu_item.Item_Name, "Details", "Store", new { id = item.menu_itemID }, null)
+            @Html.ActionLink(item.menu_item.Item_Name, "MenuItemDetails", "Menu_Item", new { id = item.menu_itemID }, null)
         </td>
         <td>
             @item.menu_item.price
@@ -81,12 +81,12 @@ $('#cart-status').text('Cart (' + data.CartCount + ')');
     }
     <tr>
         <td>
-            Total
+           <h2>Total</h2> 
         </td>
         <td></td>
         <td></td>
         <td id="cart-total">
-            @Model.CartTotal
+           <h2> @Model.CartTotal </h2>
         </td>
     </tr>
 </table>

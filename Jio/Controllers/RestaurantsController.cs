@@ -46,7 +46,7 @@ namespace Jio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RestaurantID,Name,Owner,Contact,address")] Restaurant restaurant)
+        public ActionResult Create([Bind(Include = "RestaurantID,Name,Description,Owner,Contact,address")] Restaurant restaurant)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Jio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RestaurantID,Name,Owner,Contact,address")] Restaurant restaurant)
+        public ActionResult Edit([Bind(Include = "RestaurantID,Name,Description,Owner,Contact,address")] Restaurant restaurant)
         {
             if (ModelState.IsValid)
             {
@@ -115,9 +115,25 @@ namespace Jio.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Show_All()
+        //public ActionResult Show_All()
+        //{
+        //    return View(db.restaurants.ToList());
+        //}
+
+        public ActionResult Show_All(string searchString)
         {
+            
+            var rest = from m in db.restaurants
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                rest = rest.Where(s => s.Name.Contains(searchString));
+
+                return View(rest);
+            }
             return View(db.restaurants.ToList());
+
         }
 
         protected override void Dispose(bool disposing)

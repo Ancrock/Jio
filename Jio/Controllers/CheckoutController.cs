@@ -28,6 +28,12 @@ namespace Jio.Controllers
             model.FirstName = user.Fname;
             model.LastName = user.Lname;
             model.Address = user.Address;
+            model.City = user.City;
+            model.State = user.State;
+            model.PostalCode = user.PostalCode;
+            model.Country = user.Country;
+            model.Phone = user.Phone;
+            model.Email = user.Email;
             //model.Phone = user.Card;
             model.Total = Decimal;
           

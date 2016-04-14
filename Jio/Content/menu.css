@@ -1,0 +1,78 @@
+﻿/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 16, 2016, 8:38:14 PM
+    Author     : Ancrock
+*/
+
+@font-face {
+    font-family: amit;
+    src: url(/fonts/Sansation_Italic.ttf);
+ }
+
+
+
+h1{
+    color: black;
+}
+
+
+
+#menutable{
+    
+    width: 80%;
+}
+
+#mtb{
+    margin-left:10%;
+    margin-top: 20px;
+   
+}
+
+
+.menuclick{
+ border: dotted black;
+ width:50%;
+ height: 50%;
+ overflow:hidden;
+ float:right;
+ background-color: #ffffff;
+}
+
+
+ 
+h2{
+    width: 90%;
+    float: left;
+   font-family: amit;
+}
+
+article{
+    font-family: amit;
+}
+
+p{
+    font-style: italic;
+}
+
+.k{
+    font: bold;
+    font-size: 115%;
+
+    
+
+}
+ 
+.restaurantclick{
+ border: dotted black;
+ width: 80%;
+ background-color: #ffffff;
+}
+
+#lo{
+    width: 100%;
+    overflow:scroll;
+}

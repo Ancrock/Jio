@@ -10,6 +10,7 @@ namespace Jio.Models
 
         public int RestaurantID { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public string Owner { get; set; }
         public int Contact { get; set; }
         public String address { get; set; }

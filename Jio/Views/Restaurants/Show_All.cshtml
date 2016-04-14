@@ -1,48 +1,45 @@
 ﻿@model IEnumerable<Jio.Models.Restaurant>
-
+<link rel="stylesheet" href="~/Content/menu.css" type="text/css">
 @{
-    ViewBag.Title = "Restaurants";
+//ViewBag.Title = "Restaurants";
 }
 
 <h2>Restaurants</h2>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Owner)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelitem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Owner)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                @Html.ActionLink("Select", "Restaurant_Menu", "Menu_Item", new { id = item.RestaurantID }, null) |
-            </td>
-        </tr>
+<p>
+    @using (Html.BeginForm()){
+    <p> @Html.TextBox("SearchString") <br />
+        <input class="btn btn-default" type="submit" value="Search" /></p>
     }
+</p>
 
-</table>
+<div id="menutable">
+    <table id="mtb" border="0" width="100%" cellpadding="1">
+        <tbody>
+
+            @foreach (var menuitem in Model)
+            {
+                <tr class="restaurantclick">
+                    <td class="" onclick="action = 'submit';">
+                        <k class="k">
+                            @Html.DisplayFor(modelItem => menuitem.Name)
+                        </k>
+                        <p>
+                            @Html.DisplayFor(modelItem => menuitem.Description)
+                        </p>
+                        <article>
+                            @Html.DisplayFor(modelItem => menuitem.Contact)
+                        </article>
+                        @Html.ActionLink("Select", "Restaurant_Menu", "Menu_Item", new { id = menuitem.RestaurantID, }, null) |
+
+                    </td>
+                </tr>
+
+
+            }
+
+        </tbody>
+    </table>
+</div>
+
+

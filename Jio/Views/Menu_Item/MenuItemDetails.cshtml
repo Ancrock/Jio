@@ -1,40 +1,26 @@
 ﻿@model Jio.Models.Menu_Item
-
+<link rel="stylesheet" href="~/Content/menu.css" type="text/css">
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Item_Name)</h2>
 
 <div>
-    <h4>Menu_Item</h4>
     <hr />
     <dl class="dl-horizontal">
+      
         <dt>
-            @Html.DisplayNameFor(model => model.restaurant.Name)
+          @*  @Html.DisplayNameFor(model => model.description)*@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.restaurant.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Item_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Item_Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.description)
+          <h2>  @Html.DisplayFor(model => model.description) </h2>
         </dd>
         <p>
+            <div id="lo">
             <img src="@Model.AlbumArtUrl" alt="@Model.Item_Name" />
+                </div>
         </p>
 
         <dt>
@@ -42,7 +28,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.price)
+           <h2> @Html.DisplayFor(model => model.price)</h2>
         </dd>
 
     </dl>
