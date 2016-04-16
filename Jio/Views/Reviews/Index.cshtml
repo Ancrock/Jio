@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Jio.Models.Reviews>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.restaurant.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Review)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recommendation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.restaurant.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Review)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recommendation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReviewsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewsID })
+        </td>
+    </tr>
+}
+
+</table>

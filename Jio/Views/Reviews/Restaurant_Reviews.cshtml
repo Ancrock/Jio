@@ -1,0 +1,47 @@
+﻿@model IEnumerable < Jio.Models.Reviews>
+<link rel="stylesheet" href="~/Content/menu.css" type="text/css">
+@{
+
+    {
+        ViewBag.Title = "Restaurant Reviews";
+    }
+}
+
+<h2>Restaurant Menu</h2>
+
+@Html.ActionLink("Write A Review", "CreateReview", "Reviews", null) |
+
+
+<div id="menutable">
+    <table id="mtb" border="0" width="100%" cellpadding="1">
+        <tbody>
+
+
+            @foreach (var review in Model)
+            {
+                <tr class="restaurantclick">
+                    <td class="" onclick="action = 'submit';">
+                        <k class="k">
+                                @Html.DisplayFor(modelItem => review.Recommendation)
+                        </k>
+                        <p>
+                            @Html.DisplayFor(modelItem => review.UserName)
+                        </p>
+                        <article>
+                            @Html.DisplayFor(modelItem => review.Review)
+                        </article>
+
+                    </td>
+                </tr>
+
+
+            }
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+

@@ -81,12 +81,12 @@ $('#cart-status').text('Cart (' + data.CartCount + ')');
     }
     <tr>
         <td>
-           <h2>Total</h2> 
+           <h2>Total</h2>(with 8% tax) 
         </td>
         <td></td>
         <td></td>
         <td id="cart-total">
-           <h2> @Model.CartTotal </h2>
+           <h2> @(Model.CartTotal * 0.08m + Model.CartTotal) </h2>
         </td>
     </tr>
 </table>

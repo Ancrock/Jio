@@ -35,7 +35,7 @@ namespace Jio.Controllers
             model.Phone = user.Phone;
             model.Email = user.Email;
             //model.Phone = user.Card;
-            model.Total = Decimal;
+            model.Total = Decimal * 0.08m + Decimal;
           
 
             return View(model);

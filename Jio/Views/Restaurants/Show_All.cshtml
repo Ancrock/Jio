@@ -8,10 +8,20 @@
 
 <p>
     @using (Html.BeginForm()){
-    <p> @Html.TextBox("SearchString") <br />
+    <p>Search By Name  @Html.TextBox("SearchString") <br />
         <input class="btn btn-default" type="submit" value="Search" /></p>
     }
-</p>
+<p></p>
+
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+       Search by Description @Html.TextBox("Description") <br />
+        <input class="btn btn-default" type="submit" value="Search" />
+    </p>
+    }
+   <p> </p>
 
 <div id="menutable">
     <table id="mtb" border="0" width="100%" cellpadding="1">
@@ -31,6 +41,8 @@
                             @Html.DisplayFor(modelItem => menuitem.Contact)
                         </article>
                         @Html.ActionLink("Select", "Restaurant_Menu", "Menu_Item", new { id = menuitem.RestaurantID, }, null) |
+                        @Html.ActionLink("Reviews", "Restaurant_Reviews", "Reviews", new { id = menuitem.RestaurantID, }, null) |
+
 
                     </td>
                 </tr>

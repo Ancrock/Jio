@@ -120,7 +120,7 @@ namespace Jio.Controllers
         //    return View(db.restaurants.ToList());
         //}
 
-        public ActionResult Show_All(string searchString)
+        public ActionResult Show_All(string searchString, string description)
         {
             
             var rest = from m in db.restaurants
@@ -129,12 +129,20 @@ namespace Jio.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 rest = rest.Where(s => s.Name.Contains(searchString));
-
-                return View(rest);
             }
-            return View(db.restaurants.ToList());
 
-        }
+            if (!String.IsNullOrEmpty(description))
+            {
+                rest = rest.Where(s => s.Description.Contains(description));
+            }
+
+            return View(rest);
+            }
+           // return View(db.restaurants.ToList());
+
+   
+
+        
 
         protected override void Dispose(bool disposing)
         {

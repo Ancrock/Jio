@@ -17,6 +17,8 @@ namespace Jio.Controllers
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
             // Set up our ViewModel
+            //decimal result = cart.GetTotal();
+            //decimal total = decimal.Multiply(result,0.08m) + result;
             var viewModel = new ShoppingCartViewModel
             {
                 CartItems = cart.GetCartItems(),
@@ -59,7 +61,7 @@ namespace Jio.Controllers
             {
                 Message = Server.HtmlEncode(Menu_ItemName) +
             " has been removed from your shopping cart.",
-                CartTotal = cart.GetTotal(),
+                CartTotal = cart.GetTotal() * 0.08m + cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
                 DeleteId = id

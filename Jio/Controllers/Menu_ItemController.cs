@@ -15,11 +15,15 @@ namespace Jio.Controllers
         private JioEntities db = new JioEntities();
 
         // GET: Menu_Item
+        [Authorize(Users ="ancrock@gmail.com") ]
         public ActionResult Index()
         {
             var menu_Item = db.menu_item.Include(m => m.restaurant);
             return View(menu_Item.ToList());
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
+
 
         // GET: Menu_Item/Details/5
         public ActionResult Details(int? id)
@@ -35,6 +39,7 @@ namespace Jio.Controllers
             }
             return View(menu_Item);
         }
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Menu_Item/Create
         public ActionResult Create()
@@ -46,6 +51,8 @@ namespace Jio.Controllers
         // POST: Menu_Item/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "ancrock@gmail.com")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,AlbumArtUrl,price")] Menu_Item menu_Item)
@@ -60,6 +67,7 @@ namespace Jio.Controllers
             ViewBag.RestaurantID = new SelectList(db.restaurants, "RestaurantID", "Name", menu_Item.RestaurantID);
             return View(menu_Item);
         }
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Menu_Item/Edit/5
         public ActionResult Edit(int? id)
@@ -93,6 +101,7 @@ namespace Jio.Controllers
             ViewBag.RestaurantID = new SelectList(db.restaurants, "RestaurantID", "Name", menu_Item.RestaurantID);
             return View(menu_Item);
         }
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Menu_Item/Delete/5
         public ActionResult Delete(int? id)
@@ -108,6 +117,7 @@ namespace Jio.Controllers
             }
             return View(menu_Item);
         }
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // POST: Menu_Item/Delete/5
         [HttpPost, ActionName("Delete")]

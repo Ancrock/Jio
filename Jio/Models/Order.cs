@@ -62,6 +62,8 @@ ErrorMessage = "Email is is not valid.")]
         //[ScaffoldColumn(false)]
         public decimal Total { get; set; }
 
+        public string Special_Instructions { get; set; }
+
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
 
