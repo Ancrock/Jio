@@ -6,13 +6,24 @@
 
 <h2>Index</h2>
 
+
 <p>
    @* @Html.ActionLink("Create New", "Create")*@
 </p>
+<p>
+    @using (Html.BeginForm())
+    {
+    <p>
+        Search By Id  @Html.TextBox("SearchString") <br />
+        <input class="btn btn-default" type="submit" value="Search" />
+    </p>
+    }
+    <p></p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.OrderId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LastName)
@@ -50,7 +61,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.OrderId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LastName)

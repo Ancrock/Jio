@@ -61,7 +61,7 @@ namespace Jio.Controllers
             {
                 Message = Server.HtmlEncode(Menu_ItemName) +
             " has been removed from your shopping cart.",
-                CartTotal = cart.GetTotal() * 0.08m + cart.GetTotal(),
+                CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,
                 DeleteId = id

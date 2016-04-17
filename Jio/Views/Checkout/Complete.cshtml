@@ -1,8 +1,27 @@
-﻿@model int
-@{
-    ViewBag.Title = "Checkout Complete"; }
-<h2>Checkout Complete</h2>
-<p>Thanks for your order! Your order number is: @Model</p>
-<p>
-    Please take a look at other restaurants in our @Html.ActionLink("store", "Index", "Home")
-</p>
+﻿@model Jio.Models.Order
+    <head>
+<SCRIPT type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+</SCRIPT>
+</HEAD>
+    @{
+        ViewBag.Title = "Checkout"; }
+    <h2>Checkout</h2>
+    <p>Thanks for your order! We have created an order for you! Please pay with paypal or your debit/credit card with the link below! Your order number is: @Model.OrderId</p>
+    <p>
+        Please take a look at other restaurants in our @Html.ActionLink("store", "Index", "Home")
+    </p>
+
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="KAL5GWCDZNV76">
+    <table>
+        <tr><td><input type="hidden" name="on0" value="Total">Total</td></tr>
+        <tr><td><input type="text" name="os0" value="@Model.Total" readonly="readonly" maxlength="200"></td></tr>
+        <tr><td><input type="hidden" name="on1" value="OrderNumber">OrderNumber</td></tr>
+        <tr><td><input type="text" name="os1" value="@Model.OrderId" readonly="readonly" maxlength="200"></td></tr>
+    </table>
+    <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>

@@ -13,12 +13,14 @@ namespace Jio.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         JioEntities storeDB = new JioEntities();
-        const string PromoCode = "FREE";
+        const string PromoCode = "";
         //
         // GET: /Checkout/AddressAndPayment
         public ActionResult AddressAndPayment(decimal Decimal)
         {
-
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            Response.Cache.SetNoStore();
 
             string username = User.Identity.Name;
            
@@ -35,7 +37,7 @@ namespace Jio.Controllers
             model.Phone = user.Phone;
             model.Email = user.Email;
             //model.Phone = user.Card;
-            model.Total = Decimal * 0.08m + Decimal;
+            model.Total = Decimal;
           
 
             return View(model);
@@ -45,6 +47,10 @@ namespace Jio.Controllers
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            Response.Cache.SetNoStore();
+
             var order = new Order();
             TryUpdateModel(order);
             try
@@ -65,7 +71,7 @@ namespace Jio.Controllers
                     var cart = ShoppingCart.GetCart(this.HttpContext);
                     cart.CreateOrder(order);
                     return RedirectToAction("Complete",
-                    new { id = order.OrderId });
+                    new { id = order.OrderId, @decimal = order.Total });
                 }
             }
 catch
@@ -76,15 +82,21 @@ catch
         }
         //
         // GET: /Checkout/Complete
-        public ActionResult Complete(int id)
+        public ActionResult Complete(int id, decimal Decimal)
         {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            Response.Cache.SetNoStore();
             // Validate customer owns this order
             bool isValid = storeDB.Orders.Any(
             o => o.OrderId == id &&
             o.Username == User.Identity.Name);
+            var order = new Order();
+            order.OrderId = id;
+            order.Total = Decimal;
             if (isValid)
             {
-                return View(id);
+                return View(order);
             }
             else
             {

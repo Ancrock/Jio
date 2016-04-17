@@ -1,4 +1,17 @@
 ﻿@model Jio.Models.Order
+
+<script type="text/javascript">
+
+
+   //Disable Back Button In All Browsers.
+        function DisableBackButtonAllBrowsers() {
+            window.history.forward()
+        };
+         DisableBackButtonAllBrowsers();
+        window.onload = DisableBackButtonAllBrowsers;
+         window.onpageshow = function (evts) { if (evts.persisted) DisableBackButtonAllBrowsers(); };
+        window.onunload = function () { void (0) };
+</script>
 @{
     ViewBag.Title = "Address And Payment"; }
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -102,13 +115,13 @@
         </fieldset>
         <fieldset>
             <legend>Payment</legend>
-            <p>We're running a promotion: all music is free with the promo code: "FREE"</p>
-            <div class="editor-label">
+            <p>Please review your address and other details before proceeding. If everythings is correct, please proceed to checkout.</p>
+            <div class="editor-label" hidden="hidden">
                 @Html.Label("Promo Code")
             </div>
-            <div class="editor-field">
+            <div class="editor-field" hidden="hidden">
                 @Html.TextBox("PromoCode")
             </div>
         </fieldset>
-        <input type="submit" value="Submit Order" />
+        <input class="btn btn-success" type="submit" value="Checkout" />
 }

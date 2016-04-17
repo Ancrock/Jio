@@ -4,11 +4,14 @@
 //ViewBag.Title = "Restaurants";
 }
 
-<h2>Restaurants</h2>
+<h1>Restaurants</h1>
+<p>
+         
+</p>
 
 <p>
     @using (Html.BeginForm()){
-    <p>Search By Name  @Html.TextBox("SearchString") <br />
+    <p>Search By Name  @Html.TextBox("SearchString") 
         <input class="btn btn-default" type="submit" value="Search" /></p>
     }
 <p></p>
@@ -17,7 +20,7 @@
     @using (Html.BeginForm())
     {
     <p>
-       Search by Description @Html.TextBox("Description") <br />
+       Search by Description @Html.TextBox("Description") 
         <input class="btn btn-default" type="submit" value="Search" />
     </p>
     }

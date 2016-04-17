@@ -15,9 +15,16 @@ namespace Jio.Controllers
         private JioEntities db = new JioEntities();
 
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Orders.ToList());
+            var rest = from m in db.Orders
+                       select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                rest = rest.Where(s => s.OrderId.ToString().Contains(searchString));
+            }
+            return View(rest);
         }
 
         // GET: Orders/Details/5
