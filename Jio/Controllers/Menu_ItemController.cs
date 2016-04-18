@@ -16,9 +16,16 @@ namespace Jio.Controllers
 
         // GET: Menu_Item
         [Authorize(Users ="ancrock@gmail.com") ]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var menu_Item = db.menu_item.Include(m => m.restaurant);
+            //var rest = from m in db.restaurants
+            //           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                menu_Item = menu_Item.Where(s => s.restaurant.Name.Contains(searchString));
+            }
             return View(menu_Item.ToList());
         }
 
@@ -88,6 +95,7 @@ namespace Jio.Controllers
         // POST: Menu_Item/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Users = "ancrock@gmail.com")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Menu_ItemID,RestaurantID,Item_Name,description,AlbumArtUrl,price")] Menu_Item menu_Item)

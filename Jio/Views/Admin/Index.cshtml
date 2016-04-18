@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome Admin!</h2>
+<br />
+<br />
+<input class="btn btn-warning" type="button" value="Manage Restaurants" onclick="location.href='@Url.Action("Index", "Restaurants")'" /><br /><br />
+<input class="btn btn-warning" type="button" value="Manage Menu Items" onclick="location.href='@Url.Action("Index", "Menu_Item")'" /><br /><br />
+<input class="btn btn-warning" type="button" value="Manage Restaurant Reviews" onclick="location.href='@Url.Action("Index", "Reviews")'" /><br /><br />
+<input class="btn btn-warning" type="button" value="View Orders" onclick="location.href='@Url.Action("Index", "Orders")'" /><br /><br />
+<input class="btn btn-warning" type="button" value="View Payments" onclick="location.href = 'https://www.sandbox.paypal.com/home'" /><br /><br />
+
+

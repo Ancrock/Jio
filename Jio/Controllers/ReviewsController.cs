@@ -15,12 +15,16 @@ namespace Jio.Controllers
         private ApplicationDbContext db1 = new ApplicationDbContext();
         private JioEntities db = new JioEntities();
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // GET: Reviews
         public ActionResult Index()
         {
             var reviews = db.Reviews.Include(r => r.restaurant);
             return View(reviews.ToList());
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Reviews/Details/5
         public ActionResult Details(int? id)
@@ -36,6 +40,8 @@ namespace Jio.Controllers
             }
             return View(reviews);
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Reviews/Create
         public ActionResult Create()
@@ -72,6 +78,8 @@ namespace Jio.Controllers
             return View(reviews);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // POST: Reviews/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -90,6 +98,8 @@ namespace Jio.Controllers
             return View(reviews);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // GET: Reviews/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -105,6 +115,8 @@ namespace Jio.Controllers
             ViewBag.RestaurantID = new SelectList(db.restaurants, "RestaurantID", "Name", reviews.RestaurantID);
             return View(reviews);
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // POST: Reviews/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -122,6 +134,8 @@ namespace Jio.Controllers
             ViewBag.RestaurantID = new SelectList(db.restaurants, "RestaurantID", "Name", reviews.RestaurantID);
             return View(reviews);
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Reviews/Delete/5
         public ActionResult Delete(int? id)
@@ -148,6 +162,8 @@ namespace Jio.Controllers
             return View(Reviews);
 
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // POST: Reviews/Delete/5
         [HttpPost, ActionName("Delete")]

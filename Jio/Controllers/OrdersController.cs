@@ -14,6 +14,8 @@ namespace Jio.Controllers
     {
         private JioEntities db = new JioEntities();
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // GET: Orders
         public ActionResult Index(string searchString)
         {
@@ -26,6 +28,8 @@ namespace Jio.Controllers
             }
             return View(rest);
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
@@ -42,11 +46,15 @@ namespace Jio.Controllers
             return View(order);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // GET: Orders/Create
         public ActionResult Create()
         {
             return View();
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // POST: Orders/Create
         [HttpPost]
@@ -63,6 +71,8 @@ namespace Jio.Controllers
             return View(order);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,6 +88,8 @@ namespace Jio.Controllers
             return View(order);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // POST: Orders/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -91,6 +103,8 @@ namespace Jio.Controllers
             }
             return View(order);
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
@@ -107,6 +121,8 @@ namespace Jio.Controllers
             return View(order);
         }
 
+        [Authorize(Users = "ancrock@gmail.com")]
+
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -117,6 +133,8 @@ namespace Jio.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [Authorize(Users = "ancrock@gmail.com")]
 
         public ActionResult OrderDetails (int? id)
         {
