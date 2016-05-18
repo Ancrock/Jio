@@ -14,6 +14,7 @@ namespace Jio.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Reviews> Reviews { get; set; }
+        public DbSet<Feedback> feedback { get; set; }
         //public DbSet<UserProfileEdit> UserProfileEdit { get; set; }
     }
 }

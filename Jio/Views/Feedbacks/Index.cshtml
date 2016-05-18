@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Jio.Models.Feedback>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Satisfaction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suggestions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Satisfaction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suggestions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FeedbackID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackID })
+        </td>
+    </tr>
+}
+
+</table>
